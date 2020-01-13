@@ -9,6 +9,8 @@ pipeline {
         label 'master'
     }
 
+    triggers { pollSCM('* * * * *') }                                               // Триггер, установленный на опрашивание нашей SCM(GitHub) каждую минуту
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
